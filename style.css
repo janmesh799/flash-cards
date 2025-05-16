@@ -2,23 +2,60 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #141e30, #243b55);
   margin: 0;
-  padding: 20px;
+  padding: 1rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#shuffleToggle {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+#shuffleBtn {
+  background-color: #ffc107;
+  color: #1e2a38;
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#shuffleBtn:hover {
+  background-color: #e0a800;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+.card-wrapper {
+  flex: 0 0 75%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #fff;
 }
 
 .card {
   background-color: #1e2a38;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  width: 450px;
+  width: 100%;
+  max-width: 500px;
   padding: 30px;
   text-align: center;
-  position: relative;
   transition: transform 0.3s ease;
+  max-height: 25vh
 }
 
 .card:hover {
@@ -38,7 +75,7 @@ body {
   display: none;
 }
 
-button {
+button:not(#shuffleBtn) {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -50,21 +87,64 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+button:not(#shuffleBtn):hover {
   background-color: #0056b3;
-}
-
-#shuffleBtn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background-color: #ffc107;
-  color: #1e2a38;
-  font-weight: bold;
 }
 
 #count {
   font-size: 16px;
   color: #bbb;
   margin-bottom: 15px;
+}
+
+.sidebar {
+  background-color: #1e2a38;
+  padding: 20px;
+  border-radius: 12px;
+  min-height: 50vh;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 250px;
+  margin-right: 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar h4 {
+  margin-top: 0;
+  color: #ffc107;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-wrapper {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 90%;
+    height: auto;
+    margin-top: 2rem;
+    margin-right: 0;
+  }
 }
