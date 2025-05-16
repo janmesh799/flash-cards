@@ -55,7 +55,8 @@ body {
   padding: 30px;
   text-align: center;
   transition: transform 0.3s ease;
-  max-height: 25vh
+  max-height: 35vh;
+  min-height: 20vh;
 }
 
 .card:hover {
